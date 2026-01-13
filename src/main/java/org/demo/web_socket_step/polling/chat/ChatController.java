@@ -25,7 +25,7 @@ public class ChatController {
 
     @PostMapping("/chat")
     public String save(@RequestParam(name = "message") String message,
-                       @RequestParam(name = "seber", defaultValue = "익명") String sender) {
+                       @RequestParam(name = "sever", defaultValue = "익명") String sender) {
         chatService.save(message, sender);
 
         return "redirect:/";
