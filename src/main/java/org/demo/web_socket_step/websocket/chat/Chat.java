@@ -1,0 +1,29 @@
+package org.demo.web_socket_step.websocket.chat;
+
+import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity(name = "StompChat")
+@Table(name = "chat_stomp_tb")
+@Getter
+@NoArgsConstructor
+public class Chat {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String sender;
+
+    @Column(nullable = false)
+    private String message;
+
+    @Builder
+    public Chat(Long id, String sender, String message) {
+        this.id = id;
+        this.sender = sender;
+        this.message = message;
+    }
+}
